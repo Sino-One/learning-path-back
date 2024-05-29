@@ -29,4 +29,17 @@ db.user.belongsToMany(db.role, {
 
 db.ROLES = ["user", "admin", "moderator"];
 
+db.questionnaire = require("../models/questionnaire.model.js")(
+  sequelize,
+  Sequelize
+);
+db.question = require("../models/question.model.js")(sequelize, Sequelize);
+db.option = require("../models/option.model.js")(sequelize, Sequelize);
+
+Object.keys(db).forEach((modelName) => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
+
 module.exports = db;
