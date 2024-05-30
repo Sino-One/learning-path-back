@@ -35,6 +35,7 @@ db.questionnaire = require("../models/questionnaire.model.js")(
 );
 db.question = require("../models/question.model.js")(sequelize, Sequelize);
 db.option = require("../models/option.model.js")(sequelize, Sequelize);
+db.userResponse = require("./userResponse.model.js")(sequelize, Sequelize);
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {

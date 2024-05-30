@@ -43,9 +43,11 @@ app.get("/", (req, res) => {
 
 // Import des routes pour les questionnaires
 const questionnaireRoutes = require("./routes/questionnaire.routes");
+const userResponseRoutes = require("./routes/userResponse.routes");
 
 // Utilisation des routes pour les questionnaires
 app.use("/api/qcm", questionnaireRoutes);
+app.use("/api/user-responses", userResponseRoutes);
 
 // routes
 require("./routes/auth.routes")(app);
